@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget{
                   borderRadius: BorderRadius.circular(30),
                  ),
 
-             child: Row(
+             child: Stack(
               children: [
                 Container(
                   margin: EdgeInsets.only(left:5 ),
@@ -40,13 +40,16 @@ class HomePage extends StatelessWidget{
                     ),
                   ),
                 ),
-                Spacer(),
-                Icon(
-                  Icons.search,
-                  size: 27
-                  
-                  ,
-                  color: Color(0xff475269),
+               
+                Container(
+                  margin: EdgeInsets.only(left: 220, top: 10),
+                  child: Icon(
+                    Icons.search,
+                    size: 27
+                    
+                    ,
+                    color: Color(0xff475269),
+                  ),
                 )
               ],
               ),
@@ -57,7 +60,7 @@ class HomePage extends StatelessWidget{
                 child: Text(
    "Best Deals",
                 style: TextStyle(
-                  fontSize: 23,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Color(0xffff7466),
                 ),
@@ -70,9 +73,9 @@ class HomePage extends StatelessWidget{
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.only(left: 10, bottom: 10),
                 child: Text(
-                 "Newest Products", 
+                 "News Products", 
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Color(0xffff7466),
                   )

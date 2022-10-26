@@ -30,6 +30,7 @@ class Data {
   String? productname;
   int? rate;
   String? decription;
+  String? shortDescription;
   String? harga;
 
   Data(
@@ -38,6 +39,7 @@ class Data {
       this.productname,
       this.rate,
       this.decription,
+      this.shortDescription,
       this.harga});
 
   Data.fromJson(Map<String, dynamic> json) {
@@ -46,6 +48,7 @@ class Data {
     productname = json['productname'];
     rate = json['rate'];
     decription = json['decription'];
+    shortDescription = json['ShortDescription'];
     harga = json['harga'];
   }
 
@@ -56,6 +59,7 @@ class Data {
     data['productname'] = this.productname;
     data['rate'] = this.rate;
     data['decription'] = this.decription;
+    data['ShortDescription'] = this.shortDescription;
     data['harga'] = this.harga;
     return data;
   }

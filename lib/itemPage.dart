@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:projact_pas/ItemAppBar.dart';
-import 'package:http/http.dart' as http;
 import 'package:projact_pas/ItemBottomBar.dart';
-import 'ApiModel/modelApi.dart';
 class ItemPage extends StatelessWidget{
     
+
+  
 
   @override
   Widget build(BuildContext context){
@@ -16,7 +16,6 @@ class ItemPage extends StatelessWidget{
       backgroundColor: Color(0xffedecf2),
       body: ListView(
         children: [
-          ItemAppBar(),
           Padding(padding: EdgeInsets.all(8),
           child: Image.asset(
           "images/Jam.png",
