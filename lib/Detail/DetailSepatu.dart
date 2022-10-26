@@ -1,11 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:projact_pas/ApiModel/modelApi.dart';
 import 'package:projact_pas/ItemAppBar.dart';
 import 'package:projact_pas/ItemBottomBar.dart';
 
-class Detailsepatu extends StatelessWidget{
+class Detailsepatu extends StatefulWidget{
+  Detailsepatu({Key? key, required this.data}) : super(key: key);
+   Data data;
+  @override
+  State<Detailsepatu> createState() => _DetailsepatuState();
+}
 
+class _DetailsepatuState extends State<Detailsepatu> {
+  
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -14,8 +22,8 @@ class Detailsepatu extends StatelessWidget{
         children: [
           ItemAppBar(),
           Padding(padding: EdgeInsets.all(8),
-          child: Image.asset(
-          "images/Sepatu.png",
+          child: Image.network(
+          widget.data.imgproduct.toString(),
           height: 290,
           ),
           ),
@@ -32,7 +40,7 @@ class Detailsepatu extends StatelessWidget{
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Product Title",
+                          widget.data.productname.toString(),
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
@@ -40,8 +48,8 @@ class Detailsepatu extends StatelessWidget{
                           ),
                         ),
                         Icon(
-                          Icons.favorite,
-                          color: Color.fromARGB(255, 225, 55, 69),
+                          Icons.favorite_border,
+                          color: Colors.grey,
                           size: 30,
                         )
                       ],
@@ -53,7 +61,7 @@ class Detailsepatu extends StatelessWidget{
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                        RatingBar.builder(
-                        initialRating: 4,
+                        initialRating: widget.data.rate!.toDouble(),
                         minRating: 1,
                         direction: Axis.horizontal,
                         itemCount: 5,
@@ -122,9 +130,9 @@ class Detailsepatu extends StatelessWidget{
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 30),
                     child: Text(
-                      "Women's special footwear with the LAPEPA brand type NADHIRA, very suitable to accompany your activities to make you look more stylish and confident, made with premium quality and materials.Affordable prices and guaranteed quality because they are produced in their own factory, so the quality that is served has passed quality control.",
+                      widget.data.decription.toString(),
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         color: Color(0xff475269),
                       ),
                       textAlign: TextAlign.justify,
@@ -136,7 +144,51 @@ class Detailsepatu extends StatelessWidget{
           ),
         ],
       ),
-      bottomNavigationBar: ItemBottomBar(),
+      bottomNavigationBar:Container(
+      height: 70,
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          spreadRadius: 3,
+          blurRadius: 10,
+          offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            widget.data.harga.toString(),
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          ElevatedButton.icon(
+            onPressed: (){},
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                Color(0xffff7466),
+              ),
+                 padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(vertical: 13, horizontal: 15),),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                   RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20))),
+            ),
+            icon: Icon(CupertinoIcons.cart_badge_plus),
+            label: Text("Add To Cart",style: TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold,
+            ),),
+          ),
+        ],
+      ),
+    ),
     );
   }
 }
