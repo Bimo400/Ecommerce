@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: 
   flutter_rating_bar:
   http:
+  sqflite: ^2.2.0+3
+  dio:
   
 
 dev_dependencies:
@@ -71,6 +73,7 @@ flutter:
   - images/Hadset.png
   - images/Mouse.png
   - images/Tas.png
+  - images/profile.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

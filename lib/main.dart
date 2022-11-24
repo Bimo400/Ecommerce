@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:projact_pas/CartPage.dart';
-import 'package:projact_pas/HomePage.dart';
-import 'package:projact_pas/itemPage.dart';
+import 'package:projact_pas/page/cartPage/CartPage.dart';
+import 'package:projact_pas/page/homePage/HomePage.dart';
+import 'package:projact_pas/user/signIn.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget{
+  const MyApp({Key? key}) : super(key: key);
+
   @override
-Widget build(BuildContext){
+// ignore: avoid_renaming_method_parameters
+  Widget build(BuildContext contex) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
       scaffoldBackgroundColor: Colors.white,
     ),
     routes: {
-      "/" : (context) => HomePage(),
-      "itemPage" :(context) => ItemPage(),
+      "/" : (context) => SignInPage(),
       "cartPage" :(context) => CartPage(),
     },
   );
