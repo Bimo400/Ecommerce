@@ -31,7 +31,7 @@ class Data {
   int? rate;
   String? decription;
   String? shortDescription;
-  String? harga;
+  int? harga;
 
   Data(
       {this.id,
@@ -43,15 +43,25 @@ class Data {
       this.harga});
 
   Data.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id'] as int;
     imgproduct = json['imgproduct'];
-    productname = json['productname'];
-    rate = json['rate'];
-    decription = json['decription'];
+    productname = json['productname'] as String;
+    rate = json['rate'] as int;
+    decription = json['decription'] as String;
     shortDescription = json['ShortDescription'];
-    harga = json['harga'];
+    harga = json['harga'] as int;
   }
-
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'imgproduct': imgproduct,
+      'productname': productname,
+      'rate': rate,
+      'decription': decription,
+      'ShortDescription': shortDescription,
+      'harga': harga
+    };
+  }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
